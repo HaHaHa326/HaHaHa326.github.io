@@ -1,0 +1,70 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    {{ $currentPage := . }}
+    {{ $currentPath := strings.TrimSuffix "/" (lower .RelPermalink) }}
+    <div class="sidebar-top">
+      <!-- 网站信息 -->
+      <div class="sidebar-about">
+        <a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title }}</h1></a>
+        {{ with .Site.Params.description }}
+        <p class="lead">{{ . }}</p>
+        {{ end }}
+      </div>
+
+      <!-- 头像区域 - 放在标题下方 -->
+      {{ if .Site.Params.avatar }}
+      <div class="sidebar-avatar">
+        <img src="{{ .Site.Params.avatar | relURL }}" alt="{{ .Site.Title }} avatar" class="avatar-img">
+      </div>
+      {{ end }}
+
+      <!-- 导航菜单 -->
+      <nav>
+        <ul class="sidebar-nav">
+          <li>
+            <a class="sidebar-nav-item {{ if .IsHome }}active{{ end }}" href="{{ "/" | relLangURL }}">主页</a>
+          </li>
+          {{ range .Site.Menus.main }}
+            {{ $menuPath := strings.TrimSuffix "/" (lower (.URL | relLangURL)) }}
+            {{ $isActive := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq $currentPath $menuPath) }}
+            <li>
+              <a class="sidebar-nav-item {{ if $isActive }}active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+      
+      <!-- 分类列表 -->
+      {{ if .Site.Taxonomies.categories }}
+      <div class="sidebar-categories">
+        <h3 class="sidebar-categories-title">分类</h3>
+        <ul class="sidebar-categories-list">
+          {{ range .Site.Taxonomies.categories.ByCount }}
+            <li>
+              <a href="{{ .Page.RelPermalink }}">
+                {{ .Page.Title }} <span class="category-count">({{ .Count }})</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="sidebar-bottom">
+      <!-- 社交链接 - 放在版权上方 -->
+      {{ if .Site.Params.social }}
+      <div class="sidebar-social">
+        {{ range .Site.Params.social }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="social-link">
+            {{ .name }}
+          </a>
+        {{ end }}
+      </div>
+      {{ end }}
+      
+      <!-- 版权信息 -->
+      <p class="copyright">{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
+    </div>
+  </div>
+</aside>

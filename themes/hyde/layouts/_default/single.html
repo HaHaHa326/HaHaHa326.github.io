@@ -1,0 +1,90 @@
+{{ define "main" }}
+  <article class="post">
+    <!-- 文章头部 -->
+    <header class="post-header">
+      <h1 class="post-title">{{ .Title }}</h1>
+      
+      <div class="post-meta">
+        <div class="post-date-info">
+          📅 发布日期：{{ .Date.Format "2006年01月02日" }}
+          {{ if .Lastmod }}
+          <span class="post-updated"> | 更新于：{{ .Lastmod.Format "2006年01月02日" }}</span>
+          {{ end }}
+        </div>
+        
+        <div class="post-reading-time">
+          ⏱️ 阅读时间：{{ .ReadingTime }} 分钟
+        </div>
+        
+        {{ if .Params.categories }}
+        <div class="post-categories">
+          📁 分类：
+          {{ range .Params.categories }}
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/" class="category-link">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+        
+        {{ if .Params.tags }}
+        <div class="post-tags">
+          🏷️ 标签：
+          {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="tag-link">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </header>
+    
+    <!-- 文章内容 -->
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+    
+    <!-- 文章底部 -->
+    <footer class="post-footer">
+      <!-- 分享按钮（可选） -->
+      <div class="post-share">
+        <h4>分享这篇文章</h4>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" target="_blank" class="share-btn twitter">Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" class="share-btn facebook">Facebook</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" class="share-btn linkedin">LinkedIn</a>
+        </div>
+      </div>
+      
+      <!-- 相关文章 -->
+      {{ $related := .Site.RegularPages.Related . | first 3 }}
+      {{ with $related }}
+      <div class="related-posts">
+        <h3>相关文章</h3>
+        <ul class="related-list">
+          {{ range . }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="related-date">{{ .Date.Format "2006-01-02" }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      
+      <!-- 上一篇/下一篇导航 -->
+      <div class="post-navigation">
+        {{ with .PrevInSection }}
+        <div class="nav-prev">
+          ← 上一篇<br>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </div>
+        {{ end }}
+        
+        {{ with .NextInSection }}
+        <div class="nav-next">
+          下一篇 →<br>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </div>
+        {{ end }}
+      </div>
+    </footer>
+  </article>
+{{ end }}

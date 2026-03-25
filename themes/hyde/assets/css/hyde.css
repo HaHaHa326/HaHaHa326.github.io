@@ -1,0 +1,1089 @@
+/*
+ *  __                  __
+ * /\ \                /\ \
+ * \ \ \___   __  __   \_\ \     __
+ *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+ *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+ *    \ \_\ \_\/`____ \ \___,_\ \____\
+ *     \/_/\/_/`/___/> \/__,_ /\/____/
+ *                /\___/
+ *                \/__/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/hyde.
+ */
+
+
+/*
+ * Contents
+ *
+ * Global resets
+ * Sidebar
+ * Container
+ * Reverse layout
+ * Themes
+ * Custom avatar and categories styles
+ * Optimized content styles
+ */
+
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+}
+@media (min-width: 48em) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 20px;
+  }
+}
+
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #202020;
+}
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16.8rem;
+    text-align: left;
+  }
+}
+
+/* Sidebar links */
+.sidebar a {
+  color: #fff;
+}
+
+/* About section */
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: "Abril Fatface", serif;
+  font-size: 3.25rem;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar-nav-item {
+  display: block;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+
+/* Sticky sidebar - Modified with flex layout */
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    position: absolute;
+    top: 1rem;
+    right: auto;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    height: calc(100% - 2rem);
+  }
+}
+
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+
+.content {
+  padding-top:    4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 48em) {
+  .content {
+    max-width: 42rem;
+    margin-left: 18.6rem;
+    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .content {
+    max-width: 48rem;
+    margin-left: 20.6rem;
+    margin-right: 4rem;
+  }
+}
+
+
+/*
+ * Reverse layout
+ *
+ * Flip the orientation of the page by placing the `.sidebar` on the right.
+ */
+
+@media (min-width: 48em) {
+  .layout-reverse .sidebar {
+    left: auto;
+    right: 0;
+  }
+  .layout-reverse .content {
+    margin-left: 2rem;
+    margin-right: 18.6rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .layout-reverse .content {
+    margin-left: 4rem;
+    margin-right: 20.6rem;
+  }
+}
+
+
+/*
+ * Themes
+ *
+ * As of v1.1, Hyde includes optional themes to color the sidebar and links
+ * within blog posts. To use, add the class of your choosing to the `body`.
+ */
+
+/* Base16 (http://chriskempson.github.io/base16/#default) */
+
+/* Red */
+.theme-base-08 .sidebar {
+  background-color: #ac4142;
+}
+.theme-base-08 .content a,
+.theme-base-08 .related-posts li a:hover {
+  color: #ac4142;
+}
+
+/* Orange */
+.theme-base-09 .sidebar {
+  background-color: #d28445;
+}
+.theme-base-09 .content a,
+.theme-base-09 .related-posts li a:hover {
+  color: #d28445;
+}
+
+/* Yellow */
+.theme-base-0a .sidebar {
+  background-color: #f4bf75;
+}
+.theme-base-0a .content a,
+.theme-base-0a .related-posts li a:hover {
+  color: #f4bf75;
+}
+
+/* Green */
+.theme-base-0b .sidebar {
+  background-color: #90a959;
+}
+.theme-base-0b .content a,
+.theme-base-0b .related-posts li a:hover {
+  color: #90a959;
+}
+
+/* Cyan */
+.theme-base-0c .sidebar {
+  background-color: #75b5aa;
+}
+.theme-base-0c .content a,
+.theme-base-0c .related-posts li a:hover {
+  color: #75b5aa;
+}
+
+/* Blue */
+.theme-base-0d .sidebar {
+  background-color: #6a9fb5;
+}
+.theme-base-0d .content a,
+.theme-base-0d .related-posts li a:hover {
+  color: #6a9fb5;
+}
+
+/* Magenta */
+.theme-base-0e .sidebar {
+  background-color: #aa759f;
+}
+.theme-base-0e .content a,
+.theme-base-0e .related-posts li a:hover {
+  color: #aa759f;
+}
+
+/* Brown */
+.theme-base-0f .sidebar {
+  background-color: #8f5536;
+}
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
+
+
+/*
+ * Custom styles for sidebar
+ */
+
+/* 顶部内容区域 */
+.sidebar-top {
+  flex: 1;
+}
+
+/* 底部区域 */
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+/* 版权信息样式 */
+.copyright {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (min-width: 48em) {
+  .copyright {
+    text-align: left;
+  }
+}
+
+/* 移动端样式 */
+@media (max-width: 47.9em) {
+  .sidebar-sticky {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+  
+  .sidebar-bottom {
+    margin-top: auto;
+  }
+}
+
+/*
+ * Sidebar avatar styles
+ */
+
+/* 头像容器 */
+.sidebar-avatar {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* 头像图片样式 */
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 头像悬停效果 */
+.avatar-img:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 桌面端头像左对齐 */
+@media (min-width: 48em) {
+  .sidebar-avatar {
+    text-align: left;
+  }
+  
+  .avatar-img {
+    width: 126px;
+    height: 126px;
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* 移动端头像大小调整 */
+@media (max-width: 47.9em) {
+  .avatar-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/*
+ * Categories styles
+ */
+
+/* 分类容器 */
+.sidebar-categories {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+/* 分类标题 */
+.sidebar-categories-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 分类列表 */
+.sidebar-categories-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar-categories-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.sidebar-categories-list li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.sidebar-categories-list li a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* 分类文章数量 */
+.category-count {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 0.25rem;
+}
+
+/* 桌面端分类左对齐 */
+@media (min-width: 48em) {
+  .sidebar-categories {
+    text-align: left;
+  }
+}
+
+/*
+ * Social links styles - 在版权上方
+ */
+
+/* 社交链接容器 */
+.sidebar-social {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+
+/* 社交链接样式 */
+.social-link {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* 社交链接悬停效果 */
+.social-link:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* 桌面端社交链接左对齐 */
+@media (min-width: 48em) {
+  .sidebar-social {
+    text-align: left;
+  }
+  
+  .social-link {
+    margin-left: 0;
+    margin-right: 0.75rem;
+  }
+}
+
+/*
+ * Optimized content styles - 优化右边文章显示
+ */
+
+/* 文章容器优化 */
+.content {
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 文章标题优化 */
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.content h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.content h2 {
+  font-size: 1.75rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+}
+
+/* 文章段落优化 */
+.content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+
+/* 文章链接优化 */
+.content a {
+  color: #268bd2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.content a:hover {
+  color: #2a7ae2;
+  border-bottom-color: #2a7ae2;
+}
+
+/* 文章列表优化 */
+.posts-list,
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.posts-list li,
+.post-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: transform 0.2s ease;
+}
+
+.posts-list li:hover,
+.post-list li:hover {
+  transform: translateX(4px);
+}
+
+.post-date {
+  display: inline-block;
+  width: 100px;
+  color: #999;
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.posts-list li a,
+.post-list li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.posts-list li a:hover,
+.post-list li a:hover {
+  color: #268bd2;
+}
+
+/* 文章元数据优化 */
+.post-meta {
+  margin-bottom: 1rem;
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.post-meta a {
+  color: #268bd2;
+  margin-right: 0.5rem;
+}
+
+/* 代码块优化 */
+.content pre {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.2rem;
+}
+
+.content code {
+  background-color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-family: "SF Mono", Monaco, monospace;
+}
+
+.content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* 引用块优化 */
+.content blockquote {
+  border-left: 4px solid #268bd2;
+  margin: 1.2rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  color: #666;
+  font-style: italic;
+}
+
+/* 表格优化 */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.2rem;
+}
+
+.content th,
+.content td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.content th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+/* 图片优化 */
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 分页优化 */
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  margin: 0 0.2rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.pagination a:hover {
+  background-color: #268bd2;
+  color: #fff;
+}
+
+.pagination .active span {
+  background-color: #268bd2;
+  color: #fff;
+}
+
+/* 响应式文章列表优化 */
+@media (max-width: 47.9em) {
+  .post-date {
+    display: block;
+    width: auto;
+    margin-bottom: 0.25rem;
+  }
+  
+  .posts-list li a,
+  .post-list li a {
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 文章标签优化 */
+.post-tags {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.post-tags a {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 0.2rem 0.6rem;
+  margin-right: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+  background-color: #268bd2;
+  color: #fff;
+}
+
+/* 相关文章优化 */
+.related-posts {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.related-posts ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.related-posts li {
+  margin-bottom: 0.5rem;
+}
+
+/* 阅读更多按钮 */
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #268bd2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------
+ * 2026 UI enhancement overrides
+ * -------------------------------------------------- */
+
+:root {
+  --bg-page: #f5f7fb;
+  --bg-image: url('/images/背景.jpg');
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-card-strong: rgba(255, 255, 255, 0.64);
+  --text-main: #243447;
+  --text-muted: #6b7b8a;
+  --line-soft: #e7edf3;
+  --accent: #4f8cff;
+  --accent-weak: #dbe8ff;
+  --sidebar-bg-start: #1f2630;
+  --sidebar-bg-end: #141a22;
+}
+
+html {
+  font-family: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-page);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-main);
+}
+
+@media (max-width: 47.9em) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+.sidebar {
+  background: linear-gradient(180deg, var(--sidebar-bg-start) 0%, var(--sidebar-bg-end) 100%);
+  color: rgba(255,255,255,.75);
+  box-shadow: 8px 0 24px rgba(15, 23, 42, 0.22);
+}
+
+.sidebar-about h1 {
+  font-size: 2.7rem;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-about .lead {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.7);
+}
+
+.sidebar-nav {
+  margin-top: 1.25rem;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.45rem;
+}
+
+.sidebar-nav .sidebar-nav-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.34rem 0.78rem;
+  border-radius: 999px;
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.sidebar-nav .sidebar-nav-item:hover,
+.sidebar-nav .sidebar-nav-item:focus {
+  background-color: #2a3341;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar-nav .sidebar-nav-item.active {
+  color: #fff;
+  background-color: var(--accent-weak);
+  box-shadow: inset 0 0 0 1px #8fb1ff;
+  font-weight: 600;
+}
+
+.sidebar-categories {
+  margin-top: 1.2rem;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid #3d4858;
+  border-radius: 12px;
+  background: #222c39;
+}
+
+.sidebar-categories-title {
+  margin-top: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sidebar-categories-list li a {
+  width: 100%;
+}
+
+.sidebar-categories-list li a:hover {
+  transform: none;
+  color: #fff;
+}
+
+.sidebar-social {
+  border-top: 1px dashed rgba(255,255,255,.2);
+  padding-top: 0.9rem;
+}
+
+.social-link {
+  margin: 0.15rem 0.55rem 0.15rem 0;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.social-link:hover {
+  border-color: #5a6472;
+  background: #2a3341;
+}
+
+.copyright {
+  color: rgba(255,255,255,.72);
+}
+
+.content {
+  max-width: 50rem;
+}
+
+.content.container {
+  --content-pad-inline: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  box-shadow: 0 12px 30px rgba(22, 34, 51, 0.10);
+  border: 1px solid #e7edf3;
+}
+
+.post,
+.page {
+  margin-bottom: 3.2rem;
+}
+
+.post-title,
+.page-title {
+  letter-spacing: .3px;
+}
+
+.post-date {
+  color: var(--text-muted);
+}
+
+.content h1 {
+  border-bottom-color: var(--line-soft);
+}
+
+.content h2 {
+  border-bottom-color: var(--line-soft);
+}
+
+.content p,
+.content li {
+  color: #2f3d4b;
+}
+
+.content blockquote {
+  border-left-color: var(--accent);
+  background-color: #f7faff;
+}
+
+.content pre,
+.content code {
+  background-color: #f4f7fb;
+}
+
+.pagination a:hover {
+  background-color: var(--accent);
+}
+
+@media (max-width: 47.9em) {
+  .sidebar {
+    box-shadow: none;
+  }
+
+  .sidebar-about h1 {
+    font-size: 2.1rem;
+  }
+
+  .sidebar-avatar {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .content.container {
+    margin: 0.6rem;
+    border-radius: 12px;
+  }
+
+  .sidebar-categories {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 24rem;
+    text-align: left;
+  }
+}
+
+/* --------------------------------------------------
+ * Right-side list refinement
+ * -------------------------------------------------- */
+
+.post-listing {
+  display: grid;
+  gap: 0.9rem;
+  margin-left: calc(-1 * var(--content-pad-inline));
+  margin-right: calc(-1 * var(--content-pad-inline));
+}
+
+.post-item {
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--bg-card-strong);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.post-item:hover {
+  transform: translateY(-2px);
+  border-color: #d7e4ff;
+  box-shadow: 0 8px 16px rgba(30, 64, 175, .08);
+}
+
+.post-item-title {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.4;
+}
+
+.post-item-title a {
+  color: #1e2f45;
+  text-decoration: none;
+}
+
+.post-item-title a:hover {
+  color: var(--accent);
+}
+
+.post-item-date {
+  display: inline-block;
+  margin-top: 0.35rem;
+  margin-bottom: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.2px;
+}
+
+.post-item-summary {
+  margin: 0;
+  color: #4a5968;
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.post-item-readmore {
+  display: inline-block;
+  margin-top: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.post-item-readmore:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 47.9em) {
+  .post-item {
+    padding: 0.85rem 1.05rem;
+  }
+
+  .post-item-title {
+    font-size: 1.02rem;
+  }
+}
+
+/* --------------------------------------------------
+ * Right panel fluid scaling fix
+ * -------------------------------------------------- */
+
+/* 避免大屏时一次性跳到 20px 导致右栏“放大突变” */
+html {
+  font-size: clamp(15px, 0.72vw + 11px, 18px);
+}
+
+@media (min-width: 48em) {
+  .content {
+    /* 右栏宽度跟随视口流式变化，兼顾最小阅读宽度与最大舒适宽度 */
+    width: clamp(34rem, calc(100vw - 22.5rem), 56rem);
+    max-width: 56rem;
+    margin-right: clamp(1rem, 2.2vw, 3rem);
+  }
+
+  .content.container {
+    --content-pad-inline: clamp(1rem, 1.5vw, 1.6rem);
+    padding-left: clamp(1rem, 1.5vw, 1.6rem);
+    padding-right: clamp(1rem, 1.5vw, 1.6rem);
+  }
+}
+
+@media (min-width: 64em) {
+  .content {
+    width: clamp(36rem, calc(100vw - 26.5rem), 58rem);
+    max-width: 58rem;
+  }
+}
+
+/* 列表页旧结构（.posts/.post）下也保证缩放不炸版 */
+.posts,
+.post,
+.page {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.posts > .post {
+  padding: clamp(0.9rem, 1.1vw, 1.25rem) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.posts > .post:last-child {
+  border-bottom: 0;
+}
+
+.posts > .post .post-title {
+  font-size: clamp(1.3rem, 0.95rem + 1vw, 1.85rem);
+  line-height: 1.35;
+}
+
+.posts > .post .post-date {
+  font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.92rem);
+}
+
+.posts-header {
+  margin-bottom: 1rem;
+}
+
+.posts-header .page-title {
+  margin-top: 0;
+}
+
+.posts-header .posts-stats {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
