@@ -22,12 +22,12 @@ defaultContentLanguage = "zh"
 # 社交链接配置 - 将显示在版权上方
 [[params.social]]
   name = "GitHub"
-  url = "https://github.com/yourusername"
+  url = "https://github.com/HaHaHa326"
 
 
 [[params.social]]
   name = "邮箱"
-  url = "mailto:yourname@example.com"
+  url = "cchen4661@163.com"
 
 
 # 导航菜单配置
