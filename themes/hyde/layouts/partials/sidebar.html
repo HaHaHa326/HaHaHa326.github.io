@@ -16,6 +16,17 @@
       <div class="sidebar-avatar">
         <img src="{{ .Site.Params.avatar | relURL }}" alt="{{ .Site.Title }} avatar" class="avatar-img">
       </div>
+
+      {{ if or .Site.Params.email .Site.Params.school }}
+      <div class="sidebar-contact">
+        {{ with .Site.Params.email }}
+        <p class="contact-item">邮箱：<a href="mailto:{{ . }}">{{ . }}</a></p>
+        {{ end }}
+        {{ with .Site.Params.school }}
+        <p class="contact-item">学校：{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
       {{ end }}
 
       <!-- 导航菜单 -->

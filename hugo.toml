@@ -1,6 +1,7 @@
 baseURL = "https://HaHaHa326.github.io"
 title = "我的博客"
 theme = "hyde"
+pluralizeListTitles = false
 
 # 语言设置
 languageCode = "zh-CN"
@@ -18,16 +19,14 @@ defaultContentLanguage = "zh"
   description = "分享技术与生活，记录成长与思考"
   copyright = "© 2026 我的博客. 保留所有权利"
   avatar = "/images/小八.jpg"  # 头像路径
+  email = "cchen4661@163.com"
+  school = "CQPUT"
 
 # 社交链接配置 - 将显示在版权上方
 [[params.social]]
   name = "GitHub"
   url = "https://github.com/HaHaHa326"
 
-
-[[params.social]]
-  name = "邮箱"
-  url = "cchen4661@163.com"
 
 
 # 导航菜单配置
@@ -40,6 +39,8 @@ defaultContentLanguage = "zh"
   name = "other"
   url = "/other/"
   weight = 3
+
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderHooks]

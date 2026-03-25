@@ -5,7 +5,7 @@
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h2>
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}" class="post-item-date">{{ .Date.Format "2006-01-02" }}</time>
-    <p class="post-item-summary">{{ .Summary | plainify | truncate 140 }}</p>
+    <p class="post-item-summary">{{ .Summary | plainify | truncate 80 }}</p>
     <a href="{{ .RelPermalink }}" class="post-item-readmore">阅读全文 →</a>
   </article>
   {{ end }}
